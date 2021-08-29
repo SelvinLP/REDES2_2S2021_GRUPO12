@@ -1,0 +1,50 @@
+R0
+enable
+conf t
+interface serial2/0
+ip address 192.16.3.1 255.255.255.0
+exit
+conf t
+router eigrp 100
+no auto-summary
+network 192.16.3.0 0.0.0.255
+network 192.168.3.0 0.0.0.255
+end
+show ip route
+show ip eigrp neighbors
+
+R2
+enable
+conf t
+interface serial2/0
+ip address 192.16.3.2 255.255.255.0
+exit
+conf t
+router eigrp 100
+no auto-summary
+network 192.16.3.0 0.0.0.255
+network 192.168.52.0 0.0.0.255
+end
+show ip route
+show ip eigrp neighbors
+
+conf t
+int f0/0.52
+encapsulation dot1Q 52
+ip address 192.168.52.1 255.255.255.0
+end
+
+
+
+S0
+enable
+conf t
+vlan 52
+name administracion
+exit
+int f0/2
+switchport mode acess
+switchport access vlan 52
+exit
+int f0/1
+switchport mode trunk
