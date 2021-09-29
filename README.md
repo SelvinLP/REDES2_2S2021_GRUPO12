@@ -10,5 +10,5 @@ Integrantes de desarrollo
 
 ***
 ## Tabla de Prácticas y Proyectos
-1. [Proyecto Fase1](https://github.com/SelvinLP/REDES2_2S2021_GRUPO12/blob/main/Practica%201/Enunciado/%5BRedes2%5DPractica1.pdf)
-2. [Proyecto Fase2](https://github.com/SelvinLP/REDES2_2S2021_GRUPO12/blob/main/Practica%202/%5BRedes2N%5DPractica2.pdf)
+1. [Practica 1](https://github.com/SelvinLP/REDES2_2S2021_GRUPO12/blob/main/Practica%201/Enunciado/%5BRedes2%5DPractica1.pdf)
+2. [Practica 2](https://github.com/SelvinLP/REDES2_2S2021_GRUPO12/blob/main/Practica%202/%5BRedes2N%5DPractica2.pdf)
