@@ -1,0 +1,47 @@
+version: "2.4"
+services:
+
+  server1:
+    image: load-balanced-app
+    ports:
+     - "8000"
+    environment:
+     - MESSAGE=servidor1
+    networks:
+       - service_network
+  server2:
+    image: load-balanced-app
+    ports:
+     - "8000"
+    environment:
+     - MESSAGE=servidor2
+    networks:
+       - service_network
+  server3:
+    image: load-balanced-app
+    ports:
+     - "8000"
+    environment:
+     - MESSAGE=servidor3
+    networks:
+       - service_network
+  nginx:
+    image: nginx:latest
+    volumes:
+     - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+     - server1
+     - server2
+     - server3
+    ports:
+     - "4000:4000"
+    networks:
+     - service_network
+networks:
+  service_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+       - subnet: 172.35.72.0/24
+         gateway: 172.35.72.1
