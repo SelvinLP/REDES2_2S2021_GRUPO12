@@ -1,30 +1,51 @@
 version: "2.4"
 services:
-
+  db:
+    build: ../MySQL
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306"
+    networks:
+      - db_network
+    volumes:
+      - my-data:/var/lib/mysql
   server1:
     image: load-balanced-app
     ports:
      - "8000"
     environment:
-     - MESSAGE=servidor1
+     - MESSAGE=201701133
     networks:
        - service_network
+       - db_network
   server2:
     image: load-balanced-app
     ports:
      - "8000"
     environment:
-     - MESSAGE=servidor2
+     - MESSAGE=201700801
     networks:
        - service_network
+       - db_network
   server3:
     image: load-balanced-app
     ports:
      - "8000"
     environment:
-     - MESSAGE=servidor3
+     - MESSAGE=201503484
     networks:
        - service_network
+       - db_network
+#  server4:
+#    image: load-balanced-app
+#    ports:
+#     - "8000"
+#    environment:
+#     - MESSAGE=201403610
+#    networks:
+#       - service_network
+#       - db_network
   nginx:
     image: nginx:latest
     volumes:
@@ -45,3 +66,12 @@ networks:
       config:
        - subnet: 172.35.72.0/24
          gateway: 172.35.72.1
+  db_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+       - subnet: 10.10.12.0/24
+         gateway: 10.10.12.1
+volumes:
+  my-data:
