@@ -6,6 +6,7 @@ Integrantes de desarrollo
 | Nombre | Carnet |
 |:--------------|:-------------:|
 | Selvin Lisandro Aragón Pérez | 201701133 | 
+| Lester Fernando Mazariegos Navarro | 201403610 | 
 
 
 ***
