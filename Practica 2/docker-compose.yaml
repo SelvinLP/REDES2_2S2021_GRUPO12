@@ -1,0 +1,116 @@
+version: "2.4"
+services:
+  db:
+    build: ./MySQL
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+     - "3306"
+    networks:
+     - db_network
+    volumes:
+     - my-data:/var/lib/mysql
+  server1:
+    build: ./Backend
+    ports:
+     - "8000"
+    depends_on:
+     - db
+    environment:
+     - MYSQL_HOST=db
+     - MYSQL_USER=redes2_g12
+     - MYSQL_PASSWORD=123g12
+     - MYSQL_PORT=3306
+     - MYSQL_DB=practica2_g12
+     - SERVER_PORT=8000
+     - MESSAGE=201701133
+    networks:
+     - service_network
+     - db_network
+  server2:
+    build: ./Backend
+    ports:
+     - "8000"
+    depends_on:
+     - db
+    environment:
+     - MYSQL_HOST=db
+     - MYSQL_USER=redes2_g12
+     - MYSQL_PASSWORD=123g12
+     - MYSQL_PORT=3306
+     - MYSQL_DB=practica2_g12
+     - SERVER_PORT=8000
+     - MESSAGE=201700801
+    networks:
+     - service_network
+     - db_network
+  server3:
+    build: ./Backend
+    ports:
+     - "8000"
+    depends_on:
+     - db
+    environment:
+     - MYSQL_HOST=db
+     - MYSQL_USER=redes2_g12
+     - MYSQL_PASSWORD=123g12
+     - MYSQL_PORT=3306
+     - MYSQL_DB=practica2_g12
+     - SERVER_PORT=8000
+     - MESSAGE=201503484
+    networks:
+     - service_network
+     - db_network
+#  server4:
+#    build: ./Backend
+#    ports:
+#     - "8000"
+#    depends_on:
+#     - db
+#    environment:
+#     - MYSQL_HOST=db
+#     - MYSQL_USER=redes2_g12
+#     - MYSQL_PASSWORD=123g12
+#     - MYSQL_PORT=3306
+#     - MYSQL_DB=practica2_g12
+#     - SERVER_PORT=8000
+#     - MESSAGE=201403610
+#    networks:
+#     - service_network
+#     - db_network
+  nginx:
+    image: nginx:latest
+    volumes:
+     - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+     - server1
+     - server2
+     - server3
+#     - server4
+    ports:
+     - "4000:4000"
+    networks:
+     - service_network
+networks:
+#  frontend_network:
+#    driver: bridge
+#    ipam:
+#      config:
+#        - subnet: 192.168.52.0/24
+#          gateway: 192.168.52.1
+  service_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+       - subnet: 172.35.72.0/24
+         gateway: 172.35.72.1
+  db_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+       - subnet: 10.10.12.0/24
+         gateway: 10.10.12.1
+volumes:
+  my-data:
