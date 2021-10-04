@@ -1,4 +1,4 @@
-version: "2.4"
+version: "3.3"
 services:
   db:
     build: ./MySQL
@@ -80,13 +80,25 @@ services:
      - "4000:4000"
     networks:
      - service_network
+     - frontend_network
+
+  servicio-angular:
+    container_name: "Frontend"
+    build: ./Frontend
+    ports:
+      - "4200:4200"
+    restart: always
+    networks:
+      - frontend_network
+      - service_network
+
 networks:
-  # frontend_network:
-  #   driver: bridge
-  #   ipam:
-  #     config:
-  #       - subnet: 192.168.52.0/24
-  #         gateway: 192.168.52.1
+  frontend_network:
+     driver: bridge
+     ipam:
+       config:
+         - subnet: 192.168.52.0/24
+           gateway: 192.168.52.1
   service_network:
     driver: bridge
     ipam:

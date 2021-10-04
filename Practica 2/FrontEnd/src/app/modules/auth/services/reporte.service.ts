@@ -6,7 +6,7 @@ import { AuthModel } from '../models/auth.model';
 import { AuthHTTPService } from './auth-http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export type UserType = UserModel | undefined;
 
@@ -15,6 +15,38 @@ export type UserType = UserModel | undefined;
 })
 
 export class reporteService {
-    constructor(private http:HttpClient){}
+    constructor(private http:HttpClient, public router: Router){}
 
+    headers:HttpHeaders = new HttpHeaders({
+        'Content-Type':'application/json'
+      });
+
+    prefijo_url = 'http://localhost:4000/';
+
+    // Subir Reporte
+  subir_reporte(carnet:string, nombre:string, proyecto:string, cuerpo:string){
+    const url = this.prefijo_url;
+    console.log(carnet,nombre,proyecto,cuerpo);
+    return this.http.post(url, {
+      'carnet': carnet,
+      'nombre': nombre,
+      'proyecto': proyecto,
+      'cuerpo': cuerpo
+    }, {headers: this.headers}
+    ).pipe(map( data => data ));
+  }
+
+  //Obtener todos los reportes
+   read_reportes(){
+    const url = this.prefijo_url;
+    return this.http.get(url,
+    ).pipe(map( data => data ));
+  }
+
+  //Buscar por carnet
+  read_carne(carne:string){
+    const url = this.prefijo_url + carne;
+    return this.http.get(url,
+    ).pipe(map( data => data ));
+  }
 }
