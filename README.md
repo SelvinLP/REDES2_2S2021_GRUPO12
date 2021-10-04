@@ -7,6 +7,7 @@ Integrantes de desarrollo
 |:--------------|:-------------:|
 | Selvin Lisandro Aragón Pérez | 201701133 | 
 | Lester Fernando Mazariegos Navarro | 201403610 | 
+| María Andrea Duarte Saenz| 201503484 |
 
 
 ***
