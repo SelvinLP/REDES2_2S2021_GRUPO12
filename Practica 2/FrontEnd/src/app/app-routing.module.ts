@@ -8,12 +8,6 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
-  {
-    path: '',
-    canActivate: [AuthGuard],
-    loadChildren: () =>
-      import('./_Metronic/layout/layout.module').then((m) => m.LayoutModule),
-  },
   { path: '**', redirectTo: 'error/404' },
 ];
 
