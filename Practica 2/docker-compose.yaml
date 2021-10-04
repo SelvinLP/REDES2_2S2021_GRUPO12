@@ -61,23 +61,12 @@ services:
     networks:
      - service_network
      - db_network
-#  server4:
-#    build: ./Backend
-#    ports:
-#     - "8000"
-#    depends_on:
-#     - db
-#    environment:
-#     - MYSQL_HOST=db
-#     - MYSQL_USER=redes2_g12
-#     - MYSQL_PASSWORD=123g12
-#     - MYSQL_PORT=3306
-#     - MYSQL_DB=practica2_g12
-#     - SERVER_PORT=8000
-#     - MESSAGE=201403610
-#    networks:
-#     - service_network
-#     - db_network
+  # server4:
+  #   build: ./FrontEnd
+  #   ports:
+  #     - "4200"
+  #   networks:
+  #     - service_network
   nginx:
     image: nginx:latest
     volumes:
@@ -86,18 +75,18 @@ services:
      - server1
      - server2
      - server3
-#     - server4
+    # - server4
     ports:
      - "4000:4000"
     networks:
      - service_network
 networks:
-#  frontend_network:
-#    driver: bridge
-#    ipam:
-#      config:
-#        - subnet: 192.168.52.0/24
-#          gateway: 192.168.52.1
+  # frontend_network:
+  #   driver: bridge
+  #   ipam:
+  #     config:
+  #       - subnet: 192.168.52.0/24
+  #         gateway: 192.168.52.1
   service_network:
     driver: bridge
     ipam:

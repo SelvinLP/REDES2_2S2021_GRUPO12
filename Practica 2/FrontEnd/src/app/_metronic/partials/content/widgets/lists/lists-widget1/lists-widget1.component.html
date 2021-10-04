@@ -24,11 +24,11 @@
     <!-- end::Symbol -->
     <!-- begin::Text -->
     <div class="d-flex flex-column">
-      <input class="form-control form-control-solid" type="number" value=""  placeholder="Carnet" />
+      <input class="form-control form-control-solid" type="number" value=""  placeholder="Carnet" [(ngModel)]="newReport.Carnet"/>
     </div>
     <!-- end::Text -->
   </div>
-  <!-- end::Item -->
+  <!-- end::Item --> 
   <!-- begin::Item -->
   <div class="d-flex align-items-center mb-7">
     <!-- begin::Symbol -->
@@ -43,7 +43,7 @@
     <!-- end::Symbol -->
     <!-- begin::Text -->
     <div class="d-flex flex-column">
-      <input class="form-control form-control-solid" type="text" value=""  placeholder="Nombre" />
+      <input class="form-control form-control-solid" type="text" value=""  placeholder="Nombre" [(ngModel)]="newReport.Nombre" />
     </div>
     <!-- end::Text -->
   </div>
@@ -62,7 +62,7 @@
     <!-- end::Symbol -->
     <!-- begin::Text -->
     <div class="d-flex flex-column">
-      <input class="form-control form-control-solid" type="text" value=""  placeholder="Proyecto" />
+      <input class="form-control form-control-solid" type="text" value=""  placeholder="Proyecto" [(ngModel)]="newReport.Proyecto"/>
     </div>
     <!-- end::Text -->
   </div>
@@ -81,7 +81,7 @@
     <!-- end::Symbol -->
     <!-- begin::Text -->
     <div class="d-flex flex-column">
-      <input class="form-control form-control-solid" type="text" value=""  placeholder="Contenido"  width="48" height="48"/>
+      <input class="form-control form-control-solid" type="text" value=""  placeholder="Contenido" [(ngModel)]="newReport.Cuerpo" width="48" height="48"/>
     </div>
     <!-- end::Text -->
   </div>
@@ -91,7 +91,7 @@
               margin: 0 auto"
       type="submit"
       class="btn btn-sm btn-primary"
-      data-kt-menu-dismiss="true"
+      data-kt-menu-dismiss="true" (click) ="guardarReporte()"
     >
       Agregar
     </button>
