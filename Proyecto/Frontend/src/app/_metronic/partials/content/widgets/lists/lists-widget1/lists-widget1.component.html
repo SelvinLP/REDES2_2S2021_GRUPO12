@@ -1,0 +1,99 @@
+<!-- begin::Header -->
+<div class="card-header border-0 pt-5">
+  <h3 class="card-title align-items-start flex-column">
+    <span class="card-label fw-bolder text-dark">Reporte</span>
+    <span class="text-muted mt-1 fw-bold fs-7">Ingrese los siguientes campos</span>
+  </h3>
+
+ 
+<!-- end::Header -->
+
+<!-- begin::Body -->
+<div class="card-body pt-5">
+  <!-- begin::Item -->
+  <div class="d-flex align-items-center mb-7">
+    <!-- begin::Symbol -->
+    <div class="symbol symbol-50px me-5">
+      <span class="symbol-label bg-light-success">
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/abstract/abs027.svg'"
+          class="svg-icon svg-icon-2x svg-icon-success"
+        ></span>
+      </span>
+    </div>
+    <!-- end::Symbol -->
+    <!-- begin::Text -->
+    <div class="d-flex flex-column">
+      <input class="form-control form-control-solid" type="number" value=""  placeholder="Carnet" [(ngModel)]="newReport.Carnet"/>
+    </div>
+    <!-- end::Text -->
+  </div>
+  <!-- end::Item --> 
+  <!-- begin::Item -->
+  <div class="d-flex align-items-center mb-7">
+    <!-- begin::Symbol -->
+    <div class="symbol symbol-50px me-5">
+      <span class="symbol-label bg-light-warning">
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+          class="svg-icon svg-icon-2x svg-icon-warning"
+        ></span>
+      </span>
+    </div>
+    <!-- end::Symbol -->
+    <!-- begin::Text -->
+    <div class="d-flex flex-column">
+      <input class="form-control form-control-solid" type="text" value=""  placeholder="Nombre" [(ngModel)]="newReport.Nombre" />
+    </div>
+    <!-- end::Text -->
+  </div>
+  <!-- end::Item -->
+  <!-- begin::Item -->
+  <div class="d-flex align-items-center mb-7">
+    <!-- begin::Symbol -->
+    <div class="symbol symbol-50px me-5">
+      <span class="symbol-label bg-light-primary">
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/general/gen022.svg'"
+          class="svg-icon svg-icon-2x svg-icon-primary"
+        ></span>
+      </span>
+    </div>
+    <!-- end::Symbol -->
+    <!-- begin::Text -->
+    <div class="d-flex flex-column">
+      <input class="form-control form-control-solid" type="text" value=""  placeholder="Proyecto" [(ngModel)]="newReport.Proyecto"/>
+    </div>
+    <!-- end::Text -->
+  </div>
+  <!-- end::Item -->
+  <!-- begin::Item -->
+  <div class="d-flex align-items-center mb-7">
+    <!-- begin::Symbol -->
+    <div class="symbol symbol-50px me-5">
+      <span class="symbol-label bg-light-danger">
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/coding/cod008.svg'"
+          class="svg-icon svg-icon-2x svg-icon-danger"
+        ></span>
+      </span>
+    </div>
+    <!-- end::Symbol -->
+    <!-- begin::Text -->
+    <div class="d-flex flex-column">
+      <input class="form-control form-control-solid" type="text" value=""  placeholder="Contenido" [(ngModel)]="newReport.Cuerpo" width="48" height="48"/>
+    </div>
+    <!-- end::Text -->
+  </div>
+  <!-- end::Item -->
+  <button
+      style="display: table;
+              margin: 0 auto"
+      type="submit"
+      class="btn btn-sm btn-primary"
+      data-kt-menu-dismiss="true" (click) ="guardarReporte()"
+    >
+      Agregar
+    </button>
+</div>
+<!-- end::Body -->
