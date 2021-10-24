@@ -1,152 +1,94 @@
-<!-- begin::Header -->
-<div class="card-header border-0">
-  <h3 class="card-title fw-bolder text-dark">Todo</h3>
-  <div class="card-toolbar">
-    <!-- begin::Menu -->
-    <button
-      type="button"
-      class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-      data-kt-menu-trigger="click"
-      data-kt-menu-placement="bottom-end"
-      data-kt-menu-flip="top-end"
-    >
-      <span
-        [inlineSVG]="'./assets/media/icons/duotune/general/gen024.svg'"
-        class="svg-icon svg-icon-2"
-      ></span>
-    </button>
-    <app-dropdown-menu1></app-dropdown-menu1>
-    <!-- end::Menu -->
-  </div>
+<div class="d-flex flex-column" style="display: table; margin: 0 auto">
+  <input class="form-control form-control-solid" type="number" value=""  placeholder="Id del evento" [(ngModel)]="EventoIngresado"/>
+  <button
+  style="display: table;
+          margin: 0 auto"
+  type="submit"
+  class="btn btn-sm btn-primary"
+  data-kt-menu-dismiss="true" (click) ="obtener_reportes()"
+>
+  Buscar
+</button>
 </div>
-<!-- end::Header -->
+
 <!-- begin::Body -->
-<div class="card-body pt-2">
-  <!-- begin::Item -->
-  <div class="d-flex align-items-center mb-8">
-    <!-- begin::Bullet -->
-    <span class="bullet bullet-vertical h-40px bg-success"></span>
-    <!-- end::Bullet -->
-    <!-- begin::Checkbox -->
-    <div class="form-check form-check-custom form-check-solid mx-5">
-      <input class="form-check-input" type="checkbox" value="" />
-    </div>
-    <!-- end::Checkbox -->
-    <!-- begin::Description -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">
-        Create FireStone Logo
-      </a>
-      <span class="text-muted fw-bold d-block">Due in 2 Days</span>
-    </div>
-    <!-- end::Description -->
-    <span class="badge badge-light-success fs-8 fw-bolder">New</span>
+<div class="card-body">
+
+  <!-- begin::Table container -->
+  <div class="table-responsive">
+
+    <!-- begin::Table -->
+    <table
+      class="table table-row-dashed table-row-gray-300 align-middle "
+    >
+      <!-- begin::Table head -->
+      <thead>
+        <tr class="fw-bolder text-muted">
+          
+          <th class="min-w-150px"><a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
+            Carnet
+          </a></th>
+          <th class="min-w-150px"><a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
+            Nombre
+          </a></th>
+          <th class="min-w-150px"><a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
+            Evento
+          </a></th>
+          <th class="min-w-150px"><a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
+            Fecha
+          </a></th>
+          <th class="min-w-150px"><a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
+            Servidor
+          </a></th>
+          <th class="min-w-150px"><a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
+            Captura
+          </a></th>
+        </tr>
+      </thead>
+      <!-- end::Table head -->
+      <!-- begin::Table body -->
+      <tbody *ngFor="let reporte of listadoasistencia">
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+
+              <div class="d-flex justify-content-start flex-column">
+                <span class="text-muted fw-bold text-muted d-block fs-7">
+                  {{reporte.carnet}}
+                </span>
+              </div>
+            </div>
+          </td>
+          <td>
+            <span class="text-muted fw-bold text-muted d-block fs-7">
+              {{reporte.nombre}}
+            </span>
+          </td>
+          <td>
+            <span class="text-muted fw-bold text-muted d-block fs-7">
+              {{reporte.evento}}
+            </span>
+          </td>
+          <td>
+            <span class="text-muted fw-bold text-muted d-block fs-7">
+              {{reporte.fecha}}
+            </span>
+          </td>
+          <td>
+            <span class="text-muted fw-bold text-muted d-block fs-7">
+              {{reporte.servidor}}
+            </span>
+          </td>
+          <td>
+            <img src="{{reporte.imagen}}" alt="" width="80" height="80">
+          </td>
+        </tr>
+        
+      </tbody>
+      <!-- end::Table body -->
+    </table>
+    <!-- end::Table -->
   </div>
-  <!-- end:Item -->
-  <!-- begin::Item -->
-  <div class="d-flex align-items-center mb-8">
-    <!-- begin::Bullet -->
-    <span class="bullet bullet-vertical h-40px bg-primary"></span>
-    <!-- end::Bullet -->
-    <!-- begin::Checkbox -->
-    <div class="form-check form-check-custom form-check-solid mx-5">
-      <input class="form-check-input" type="checkbox" value="" />
-    </div>
-    <!-- end::Checkbox -->
-    <!-- begin::Description -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">
-        Stakeholder Meeting
-      </a>
-      <span class="text-muted fw-bold d-block">Due in 3 Days</span>
-    </div>
-    <!-- end::Description -->
-    <span class="badge badge-light-primary fs-8 fw-bolder">New</span>
-  </div>
-  <!-- end:Item -->
-  <!-- begin::Item -->
-  <div class="d-flex align-items-center mb-8">
-    <!-- begin::Bullet -->
-    <span class="bullet bullet-vertical h-40px bg-warning"></span>
-    <!-- end::Bullet -->
-    <!-- begin::Checkbox -->
-    <div class="form-check form-check-custom form-check-solid mx-5">
-      <input class="form-check-input" type="checkbox" value="" />
-    </div>
-    <!-- end::Checkbox -->
-    <!-- begin::Description -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">
-        Scoping &amp; Estimations
-      </a>
-      <span class="text-muted fw-bold d-block">Due in 5 Days</span>
-    </div>
-    <!-- end::Description -->
-    <span class="badge badge-light-warning fs-8 fw-bolder">New</span>
-  </div>
-  <!-- end:Item -->
-  <!-- begin::Item -->
-  <div class="d-flex align-items-center mb-8">
-    <!-- begin::Bullet -->
-    <span class="bullet bullet-vertical h-40px bg-primary"></span>
-    <!-- end::Bullet -->
-    <!-- begin::Checkbox -->
-    <div class="form-check form-check-custom form-check-solid mx-5">
-      <input class="form-check-input" type="checkbox" value="" />
-    </div>
-    <!-- end::Checkbox -->
-    <!-- begin::Description -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">
-        KPI App Showcase
-      </a>
-      <span class="text-muted fw-bold d-block">Due in 2 Days</span>
-    </div>
-    <!-- end::Description -->
-    <span class="badge badge-light-primary fs-8 fw-bolder">New</span>
-  </div>
-  <!-- end:Item -->
-  <!-- begin::Item -->
-  <div class="d-flex align-items-center mb-8">
-    <!-- begin::Bullet -->
-    <span class="bullet bullet-vertical h-40px bg-danger"></span>
-    <!-- end::Bullet -->
-    <!-- begin::Checkbox -->
-    <div class="form-check form-check-custom form-check-solid mx-5">
-      <input class="form-check-input" type="checkbox" value="" />
-    </div>
-    <!-- end::Checkbox -->
-    <!-- begin::Description -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">
-        Project Meeting
-      </a>
-      <span class="text-muted fw-bold d-block">Due in 12 Days</span>
-    </div>
-    <!-- end::Description -->
-    <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
-  </div>
-  <!-- end:Item -->
-  <!-- begin::Item -->
-  <div class="d-flex align-items-center">
-    <!-- begin::Bullet -->
-    <span class="bullet bullet-vertical h-40px bg-success"></span>
-    <!-- end::Bullet -->
-    <!-- begin::Checkbox -->
-    <div class="form-check form-check-custom form-check-solid mx-5">
-      <input class="form-check-input" type="checkbox" value="" />
-    </div>
-    <!-- end::Checkbox -->
-    <!-- begin::Description -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">
-        Customers Update
-      </a>
-      <span class="text-muted fw-bold d-block">Due in 1 week</span>
-    </div>
-    <!-- end::Description -->
-    <span class="badge badge-light-success fs-8 fw-bolder">New</span>
-  </div>
-  <!-- end:Item -->
+  <!-- end::Table container -->
 </div>
-<!-- end::Body -->
+<!-- begin::Body -->

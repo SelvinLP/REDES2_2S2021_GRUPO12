@@ -17,32 +17,28 @@ export class AsistenciaService {
   prefijo_url = 'http://localhost:4000/';
 
    // Subir Asistencia
-   subir_asistencia(carnet:string, nombre:string, evento:string, idevento:number, 
-                  imgnombre:string, imgb64:string, extension:string){
-    const url = this.prefijo_url;
-    return this.http.post(url, {
-      'carnet': carnet,
-      'nombre': nombre,
-      'nombreevento': evento,
-      'idevento': idevento,
-      'imgnombre': imgnombre,
-      'imgb64': imgb64,
-      'extension': extension
-    }, {headers: this.headers}
+   subir_asistencia(data:any){
+    const url = this.prefijo_url + "addasistencia";
+    console.log(data);
+    return this.http.post(url, data, {headers: this.headers}
     ).pipe(map( data => data ));
   }
 
   //Obtener asistencias
   read_asistencia(idevento:number){
-    const url = this.prefijo_url;
-    return this.http.get(url,
+    const url = this.prefijo_url + "asistencia";
+    return this.http.post(url, {
+      'idevento': idevento
+    }, {headers: this.headers}
     ).pipe(map( data => data ));
   }
   
   //Obtener asistencias
   read_asistenciaCarnet(carnet:number){
-    const url = this.prefijo_url;
-    return this.http.get(url,
+    const url = this.prefijo_url + "asistenciaest";
+    return this.http.post(url,{
+      'carnet': carnet
+    }, {headers: this.headers}
     ).pipe(map( data => data ));
   }
 }

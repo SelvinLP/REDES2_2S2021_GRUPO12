@@ -24,7 +24,7 @@
     <!-- end::Symbol -->
     <!-- begin::Text -->
     <div class="d-flex flex-column">
-      <input class="form-control form-control-solid" type="number" value=""  placeholder="Carnet" [(ngModel)]="newReport.Carnet"/>
+      <input class="form-control form-control-solid" type="number" value=""  placeholder="Carnet" [(ngModel)]="newAsistencia.carnet"/>
     </div>
     <!-- end::Text -->
   </div>
@@ -43,7 +43,7 @@
     <!-- end::Symbol -->
     <!-- begin::Text -->
     <div class="d-flex flex-column">
-      <input class="form-control form-control-solid" type="text" value=""  placeholder="Nombre" [(ngModel)]="newReport.Nombre" />
+      <input class="form-control form-control-solid" type="text" value=""  placeholder="Nombre" [(ngModel)]="newAsistencia.nombre" />
     </div>
     <!-- end::Text -->
   </div>
@@ -62,7 +62,7 @@
     <!-- end::Symbol -->
     <!-- begin::Text -->
     <div class="d-flex flex-column">
-      <input class="form-control form-control-solid" type="text" value=""  placeholder="Evento" [(ngModel)]="newReport.Proyecto"/>
+      <input class="form-control form-control-solid" type="text" value=""  placeholder="Evento" [(ngModel)]="newAsistencia.nombreevento"/>
     </div>
     <!-- end::Text -->
   </div>
@@ -81,11 +81,22 @@
     <!-- end::Symbol -->
     <!-- begin::Text -->
     <div class="d-flex flex-column">
-      <input class="form-control form-control-solid" type="number" value=""  placeholder="Id Evento" [(ngModel)]="newReport.Cuerpo" width="48" height="48"/>
+      <input class="form-control form-control-solid" type="number" value=""  placeholder="Id Evento" [(ngModel)]="newAsistencia.idevento" width="48" height="48"/>
     </div>
     <!-- end::Text -->
   </div>
   <!-- end::Item -->
+  <input #file type="file" accept="image/*" (change)="subirarchivo($event)" style="display:none">
+  <button
+      style="display: table;
+              margin: 0 auto"
+      type="submit"
+      class="btn btn-sm btn-primary"
+      #upload (click)="file.click()"
+    >
+      Agregar Captura
+    </button>
+  <br>
   <button
       style="display: table;
               margin: 0 auto"
