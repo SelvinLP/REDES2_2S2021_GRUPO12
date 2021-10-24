@@ -1,111 +1,99 @@
 <!-- begin::Header -->
-<div class="card-header border-0">
-  <h3 class="card-title fw-bolder text-dark">Authors</h3>
-  <div class="card-toolbar">
-    <!-- begin::Menu -->
-    <button
-      type="button"
-      class="btn btn-sm btn-icon btn-color-primary btn-active-light-primary"
-      data-kt-menu-trigger="click"
-      data-kt-menu-placement="bottom-end"
-      data-kt-menu-flip="top-end"
-    >
-      <span
-        [inlineSVG]="'./assets/media/icons/duotune/general/gen024.svg'"
-        class="svg-icon svg-icon-2"
-      ></span>
-    </button>
-    <app-dropdown-menu1></app-dropdown-menu1>
-    <!-- end::Menu -->
-  </div>
-</div>
+<div class="card-header border-0 pt-5">
+  <h3 class="card-title align-items-start flex-column">
+    <span class="card-label fw-bolder text-dark">Asistencia</span>
+    <span class="text-muted mt-1 fw-bold fs-7">Ingrese los siguientes campos</span>
+  </h3>
+
+ 
 <!-- end::Header -->
+
 <!-- begin::Body -->
-<div class="card-body pt-2">
+<div class="card-body pt-5">
   <!-- begin::Item -->
   <div class="d-flex align-items-center mb-7">
-    <!-- begin::Avatar -->
+    <!-- begin::Symbol -->
     <div class="symbol symbol-50px me-5">
-      <img src="./assets/media/avatars/150-1.jpg" class="" alt="" />
+      <span class="symbol-label bg-light-success">
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/abstract/abs027.svg'"
+          class="svg-icon svg-icon-2x svg-icon-success"
+        ></span>
+      </span>
     </div>
-    <!-- end::Avatar -->
+    <!-- end::Symbol -->
     <!-- begin::Text -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
-        Emma Smith
-      </a>
-      <span class="text-muted d-block fw-bold">Project Manager</span>
+    <div class="d-flex flex-column">
+      <input class="form-control form-control-solid" type="number" value=""  placeholder="Carnet" [(ngModel)]="newReport.Carnet"/>
     </div>
     <!-- end::Text -->
   </div>
-  <!-- end::Item -->
+  <!-- end::Item --> 
   <!-- begin::Item -->
   <div class="d-flex align-items-center mb-7">
-    <!-- begin::Avatar -->
+    <!-- begin::Symbol -->
     <div class="symbol symbol-50px me-5">
-      <img src="./assets/media/avatars/150-4.jpg" class="" alt="" />
+      <span class="symbol-label bg-light-warning">
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'"
+          class="svg-icon svg-icon-2x svg-icon-warning"
+        ></span>
+      </span>
     </div>
-    <!-- end::Avatar -->
+    <!-- end::Symbol -->
     <!-- begin::Text -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
-        Sean Bean
-      </a>
-      <span class="text-muted d-block fw-bold">PHP, SQLite, Artisan CLI</span>
-    </div>
-    <!-- end::Text -->
-  </div>
-  <!-- end::Item -->
-  <!-- begin::Item -->
-  <div class="d-flex align-items-center mb-7">
-    <!-- begin::Avatar -->
-    <div class="symbol symbol-50px me-5">
-      <img src="./assets/media/avatars/150-12.jpg" class="" alt="" />
-    </div>
-    <!-- end::Avatar -->
-    <!-- begin::Text -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
-        Brian Cox
-      </a>
-      <span class="text-muted d-block fw-bold">PHP, SQLite, Artisan CLI</span>
+    <div class="d-flex flex-column">
+      <input class="form-control form-control-solid" type="text" value=""  placeholder="Nombre" [(ngModel)]="newReport.Nombre" />
     </div>
     <!-- end::Text -->
   </div>
   <!-- end::Item -->
   <!-- begin::Item -->
   <div class="d-flex align-items-center mb-7">
-    <!-- begin::Avatar -->
+    <!-- begin::Symbol -->
     <div class="symbol symbol-50px me-5">
-      <img src="./assets/media/avatars/150-8.jpg" class="" alt="" />
+      <span class="symbol-label bg-light-primary">
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/general/gen022.svg'"
+          class="svg-icon svg-icon-2x svg-icon-primary"
+        ></span>
+      </span>
     </div>
-    <!-- end::Avatar -->
+    <!-- end::Symbol -->
     <!-- begin::Text -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
-        Francis Mitcham
-      </a>
-      <span class="text-muted d-block fw-bold">PHP, SQLite, Artisan CLI</span>
+    <div class="d-flex flex-column">
+      <input class="form-control form-control-solid" type="text" value=""  placeholder="Evento" [(ngModel)]="newReport.Proyecto"/>
     </div>
     <!-- end::Text -->
   </div>
   <!-- end::Item -->
   <!-- begin::Item -->
-  <div class="d-flex align-items-center">
-    <!-- begin::Avatar -->
+  <div class="d-flex align-items-center mb-7">
+    <!-- begin::Symbol -->
     <div class="symbol symbol-50px me-5">
-      <img src="./assets/media/avatars/150-6.jpg" class="" alt="" />
+      <span class="symbol-label bg-light-danger">
+        <span
+          [inlineSVG]="'./assets/media/icons/duotune/coding/cod008.svg'"
+          class="svg-icon svg-icon-2x svg-icon-danger"
+        ></span>
+      </span>
     </div>
-    <!-- end::Avatar -->
+    <!-- end::Symbol -->
     <!-- begin::Text -->
-    <div class="flex-grow-1">
-      <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
-        Dan Wilson
-      </a>
-      <span class="text-muted d-block fw-bold">PHP, SQLite, Artisan CLI</span>
+    <div class="d-flex flex-column">
+      <input class="form-control form-control-solid" type="number" value=""  placeholder="Id Evento" [(ngModel)]="newReport.Cuerpo" width="48" height="48"/>
     </div>
     <!-- end::Text -->
   </div>
   <!-- end::Item -->
+  <button
+      style="display: table;
+              margin: 0 auto"
+      type="submit"
+      class="btn btn-sm btn-primary"
+      data-kt-menu-dismiss="true" (click) ="guardarReporte()"
+    >
+      Agregar Asistencia
+    </button>
 </div>
 <!-- end::Body -->

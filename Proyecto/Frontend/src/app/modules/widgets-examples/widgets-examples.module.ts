@@ -9,6 +9,9 @@ import { MixedComponent } from './mixed/mixed.component';
 import { TablesComponent } from './tables/tables.component';
 import { FeedsComponent } from './feeds/feeds.component';
 import { WidgetsModule } from '../../_metronic/partials';
+import { AddasistenciaComponent } from './addasistencia/addasistencia.component';
+import { ListasistenciaComponent } from './listasistencia/listasistencia.component';
+import { ListasistenciaestudianteComponent } from './listasistenciaestudiante/listasistenciaestudiante.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { WidgetsModule } from '../../_metronic/partials';
     MixedComponent,
     TablesComponent,
     FeedsComponent,
+    AddasistenciaComponent,
+    ListasistenciaComponent,
+    ListasistenciaestudianteComponent,
   ],
   imports: [CommonModule, WidgetsExamplesRoutingModule, WidgetsModule],
 })

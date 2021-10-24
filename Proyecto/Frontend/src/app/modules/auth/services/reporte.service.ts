@@ -26,7 +26,6 @@ export class reporteService {
     // Subir Reporte
   subir_reporte(carnet:string, nombre:string, proyecto:string, cuerpo:string){
     const url = this.prefijo_url;
-    console.log(carnet,nombre,proyecto,cuerpo);
     return this.http.post(url, {
       'carnet': carnet,
       'nombre': nombre,

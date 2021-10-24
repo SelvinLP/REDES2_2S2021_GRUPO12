@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddasistenciaComponent } from './addasistencia/addasistencia.component';
 import { ChartsComponent } from './charts/charts.component';
 import { FeedsComponent } from './feeds/feeds.component';
+import { ListasistenciaComponent } from './listasistencia/listasistencia.component';
+import { ListasistenciaestudianteComponent } from './listasistenciaestudiante/listasistenciaestudiante.component';
 import { ListsComponent } from './lists/lists.component';
 import { MixedComponent } from './mixed/mixed.component';
 import { StatisticsComponent } from './statistics/statistics.component';
@@ -36,6 +39,18 @@ const routes: Routes = [
       {
         path: 'feeds',
         component: FeedsComponent,
+      },
+      {
+        path: 'asiestudiante',
+        component: ListasistenciaestudianteComponent,
+      },
+      {
+        path: 'asis',
+        component: ListasistenciaComponent,
+      },
+      {
+        path: 'addasis',
+        component: AddasistenciaComponent,
       },
       { path: '', redirectTo: 'lists', pathMatch: 'full' },
       { path: '**', redirectTo: 'lists', pathMatch: 'full' },
