@@ -24,7 +24,7 @@ export class TablesWidget10Component implements OnInit {
       Nombre: "Selvin",
       Proyecto: "Redes",
       Servidor: "2017000",
-      Fecha: "17/09/2021",
+      Fecha: "5/11/2021",
       Cuerpo: "Hola mensaje"
     }
   ];
@@ -40,7 +40,19 @@ export class TablesWidget10Component implements OnInit {
   }
 
   obtener_reportes(){
-    this.listadoreportes = [];
+    
+    if(this.CarneIngresado == ""){
+      this.listadoreportes = this.reporte_service.listareportes;
+    }else{
+      this.listadoreportes = [];
+      for(let item of this.reporte_service.listareportes){
+        if(item.Carnet == this.CarneIngresado){
+          this.listadoreportes.push(item);
+        }
+      }
+      
+    }
+    /*
     if(this.CarneIngresado == ""){
       this.reporte_service.read_reportes().subscribe((res: any) => {
         res.message.forEach((element: any) => {
@@ -58,7 +70,7 @@ export class TablesWidget10Component implements OnInit {
         //this.actualizarPagina();
       })
     }
-
+    */
     
   }
 

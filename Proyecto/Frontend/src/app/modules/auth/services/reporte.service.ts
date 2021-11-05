@@ -21,7 +21,16 @@ export class reporteService {
         'Content-Type':'application/json'
       });
 
-    prefijo_url = 'http://localhost:4000/';
+    prefijo_url = 'http://redes2g12.tk:4000/';
+    
+    listareportes = [{
+      Carnet: "201701133",
+      Nombre: "Selvin",
+      Proyecto: "Redes",
+      Servidor: "2017000",
+      Fecha: "5/11/2021",
+      Cuerpo: "Hola mensaje"
+    }];
 
     // Subir Reporte
   subir_reporte(carnet:string, nombre:string, proyecto:string, cuerpo:string){

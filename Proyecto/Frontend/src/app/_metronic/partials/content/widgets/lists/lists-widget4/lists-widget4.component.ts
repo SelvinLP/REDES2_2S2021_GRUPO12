@@ -24,15 +24,27 @@ export class ListsWidget4Component {
       servidor: "servidorbase"
     }
   ];
-  CarnetIngresado:number;
+  CarnetIngresado:string = "";
 
   obtener_reportes(){
     this.listadoasistencia = [];
+    if(this.CarnetIngresado == ""){
+      this.listadoasistencia = this.asistencia_service.listadoasistencia;
+    }else{
+      this.listadoasistencia = [];
+      for(let item of this.asistencia_service.listadoasistencia){
+        if(item.carnet == this.CarnetIngresado){
+          this.listadoasistencia.push(item);
+        }
+      }
+    }
+    /*
     this.asistencia_service.read_asistenciaCarnet(this.CarnetIngresado).subscribe((res: any) => {
       res.message.forEach((element: any) => {
         this.listadoasistencia.push(element);
       });
     });
+    */
   }
 
 }

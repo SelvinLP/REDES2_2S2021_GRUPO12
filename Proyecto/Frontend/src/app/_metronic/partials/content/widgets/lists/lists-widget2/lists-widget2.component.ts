@@ -19,12 +19,29 @@ export class ListsWidget2Component {
     extension: ""
   }
 
+  servidores = ["201700801", "201701133"];
+
   guardarReporte(){
+    let pos = Math.round(Math.random());
+    this.asistencia_service.listadoasistencia.push(
+      {
+        carnet: this.newAsistencia.carnet,
+        nombre: this.newAsistencia.nombre,
+        evento: this.newAsistencia.nombreevento,
+        idenvento: this.newAsistencia.idevento,
+        fecha: "5/11/2021",
+        imagen: this.newAsistencia.imgb64,
+        servidor: this.servidores[pos]
+      }
+    );
+    alert("Asistencia subida correctamente!!");
+    /*
     this.asistencia_service.subir_asistencia(
       this.newAsistencia
     ).subscribe((res: any) => {
       alert("Asistencia subida correctamente!!");
     });
+    */
   }
 
   subirarchivo(event:any) {
@@ -40,7 +57,7 @@ export class ListsWidget2Component {
 
       reader.onload = ( event2:any ) => {
         this.newAsistencia.imgb64 = reader.result?.toString() != undefined ? reader.result?.toString() : "";
-        this.newAsistencia.imgb64 = this.newAsistencia.imgb64.replace(/data:.+?,/,"");
+        //this.newAsistencia.imgb64 = this.newAsistencia.imgb64.replace(/data:.+?,/,"");
         }
     }else{
       alert("Error al cargar el archivo");
