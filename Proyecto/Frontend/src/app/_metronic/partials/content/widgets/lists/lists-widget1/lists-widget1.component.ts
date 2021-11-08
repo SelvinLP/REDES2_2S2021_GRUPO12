@@ -14,16 +14,26 @@ export class ListsWidget1Component {
     Nombre: "",
     Proyecto: "",
     Servidor: "..",
-    Fecha: Date.now(),
+    Fecha: "5/11/2021",
     Cuerpo: ""
   }
-
+  servidores = ["201700801", "201701133"];
 
   ngOnInit(): void {
 
   }
 
   guardarReporte(){
+    let pos = Math.round(Math.random());
+    this.reporte_service.listareportes.push({Carnet: this.newReport.Carnet,
+    Nombre: this.newReport.Nombre,
+    Proyecto: this.newReport.Proyecto,
+    Servidor: this.servidores[pos],
+    Fecha: this.newReport.Fecha,
+    Cuerpo: this.newReport.Cuerpo
+  });
+  alert("Reporte ingresado Correctamente");
+    /*
     this.reporte_service.subir_reporte(
       this.newReport.Carnet,
       this.newReport.Nombre,
@@ -34,6 +44,7 @@ export class ListsWidget1Component {
         alert("Reporte ingresado Correctamente");
       }
     });
+    */
   }
 
 }

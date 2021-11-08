@@ -24,14 +24,26 @@ export class ListsWidget3Component {
       servidor: "servidorbase"
     }
   ];
-  EventoIngresado:number;
+  EventoIngresado:string = "";
 
   obtener_reportes(){
-    this.listadoasistencia = [];
+    //console.log(this.asistencia_service.listadoasistencia);
+    if(this.EventoIngresado == ""){
+      this.listadoasistencia = this.asistencia_service.listadoasistencia;
+    }else{
+      this.listadoasistencia = [];
+      for(let item of this.asistencia_service.listadoasistencia){
+        if(item.idenvento == this.EventoIngresado){
+          this.listadoasistencia.push(item);
+        }
+      }
+    }
+    /*
     this.asistencia_service.read_asistencia(this.EventoIngresado).subscribe((res: any) => {
       res.message.forEach((element: any) => {
         this.listadoasistencia.push(element);
       });
     });
+    */
   }
 }

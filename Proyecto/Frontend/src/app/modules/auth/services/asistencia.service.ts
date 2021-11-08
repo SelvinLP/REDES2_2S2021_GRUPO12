@@ -14,7 +14,19 @@ export class AsistenciaService {
     'Content-Type':'application/json'
   });
 
-  prefijo_url = 'http://localhost:4000/';
+  listadoasistencia = [
+    {
+      carnet: "201701133",
+      nombre: "Selvin",
+      evento: "Redes",
+      idenvento: "2017000",
+      fecha: "17/09/2021",
+      imagen: "https://img.discogs.com/Urqa1qKPD-K0R7f12YwD0zgo5RE=/600x516/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-2608601-1459131069-5533.png.jpg",
+      servidor: "servidorbase"
+    }
+  ];
+
+  prefijo_url = 'http://redes2g12.tk:4000/';
 
    // Subir Asistencia
    subir_asistencia(data:any){
